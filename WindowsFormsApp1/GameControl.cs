@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WindowsFormApp1
+namespace Wumpus
 {
     class GameControl
     {
