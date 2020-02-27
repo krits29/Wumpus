@@ -17,7 +17,7 @@ namespace WumpusTest
 
         // a lot of these are going to call Cave
 
-        public void caveMap()
+        public void getCaveMap()
         {
             // which cave map are we using
         }
@@ -29,12 +29,7 @@ namespace WumpusTest
             return room;
         }
 
-        public int hazardRoom()
-        {
-            int room = 0;
-            //calling cave
-            return room;
-        }
+      
 
     }
 }
