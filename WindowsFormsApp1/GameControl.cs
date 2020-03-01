@@ -22,6 +22,7 @@ namespace Wumpus
         {
             //accessor for the game state: planning on 0: entry screen, 1: in game,
             //2: viewing high scores, or something like that
+            //3: viewing instructions
             return gameState;
         }
 
@@ -42,6 +43,7 @@ namespace Wumpus
             if (displayMainMenu)
             {
                 displayHighScorePage = true;
+                gameState = 2;
             }
             //passes onto highscore
         }
@@ -55,13 +57,25 @@ namespace Wumpus
             }
             //passes onto game creation: player, location, UI, etc.
         }
+
         public void instructionsActivated()
         {
             if (displayMainMenu)
             {
                 displayInstructions = true;
+                gameState = 2;
             }
             //passes onto instructions page (UI)
+        }
+
+        public String instructions(){
+            String str = "";
+            str += "Use the arrow keys or WASD to move";
+            str += "\nThe object of the game is to shoot the Wumpus.";
+            str += "\nGood luck!";
+        
+            return str;
+
         }
 
 
