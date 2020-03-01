@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace Wumpus
 {
     partial class Form1
     {

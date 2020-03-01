@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormApp1;
 
-namespace WindowsFormsApp1
+namespace Wumpus
 {
     public partial class Form1 : Form
     {
