@@ -7,10 +7,10 @@ namespace Wumpus
     class GameControl
     {
         private int gameState;
-        private Boolean displayMainMenu;
-        private Boolean displayHighScorePage;
-        private Boolean displayInstructions;
-        private Boolean launchGame;
+        private Boolean displayingMainMenu;
+        private Boolean displayingHighScorePage;
+        private Boolean displayingInstructions;
+        private Boolean launchedGame;
 
 
         public GameControl()
@@ -21,8 +21,7 @@ namespace Wumpus
         public int getGameState()
         {
             //accessor for the game state: planning on 0: entry screen, 1: in game,
-            //2: viewing high scores, or something like that
-            //3: viewing instructions
+            //2: viewing high scores, or instructions
             return gameState;
         }
 
@@ -34,15 +33,16 @@ namespace Wumpus
 
         public void mainMenuActivated()
         {
-            displayMainMenu = true;
+            displayingMainMenu = true;
             //passes onto UI, passes onto highscore, etc. if triggered
         }
 
         public void highScorePageActivated()
         {
-            if (displayMainMenu)
+            if (displayingMainMenu)
             {
-                displayHighScorePage = true;
+                displayingMainMenu = false;
+                displayingHighScorePage = true;
                 gameState = 2;
             }
             //passes onto highscore
@@ -50,9 +50,10 @@ namespace Wumpus
 
         public void launchGameActivated()
         {
-            if (displayMainMenu)
+            if (displayingMainMenu)
             {
-                launchGame = true;
+                displayingMainMenu = false;
+                launchedGame = true;
                 gameState = 1;
             }
             //passes onto game creation: player, location, UI, etc.
@@ -60,12 +61,21 @@ namespace Wumpus
 
         public void instructionsActivated()
         {
-            if (displayMainMenu)
+            if (displayingMainMenu)
             {
-                displayInstructions = true;
+                displayingInstructions = true;
+                displayingMainMenu = false;
                 gameState = 2;
             }
             //passes onto instructions page (UI)
+        }
+
+        public void goBack(){
+            displayingMainMenu = true;
+            displayingInstructions = false;
+            launchedGame = false;
+            displayingHighScorePage = false;
+            gameState = 0;
         }
 
         public String instructions(){
