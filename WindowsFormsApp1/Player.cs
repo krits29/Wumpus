@@ -10,10 +10,22 @@ namespace Wumpus
     {
 
         private String player;
+        private int currentScore;
 
         public Player(String name)
         {
             player = name ;
+            currentScore = 0;
+        }
+        
+        public int getCurrentScore()
+        {
+            return this.currentScore;
+        }
+        
+        public String getPlayer()
+        {
+            return this.player;
         }
 
         public void currentCave()
@@ -21,14 +33,9 @@ namespace Wumpus
             // call cave
         }
 
-        public int currentScore()
+        public void updateScore(int update)
         {
-            int score = 0;
-
-            //more stuff
-            //calling methods to retrieve score
-
-            return score;
+            this.currentScore += update;
         }
 
         public Boolean safeFromWumpus()
