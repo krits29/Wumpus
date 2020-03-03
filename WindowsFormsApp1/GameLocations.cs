@@ -8,12 +8,12 @@ namespace Wumpus
 {
     class GameLocations
     {
-        private String gameLoc;
+        private int WumpusRoom;
 
-        public GameLocations(String name)
-        {
-            gameLoc = name;
-        }
+        //public GameLocations()
+        //{
+        //    constructor not necessary???
+        //}
 
         // a lot of these are going to call Cave
 
@@ -22,11 +22,14 @@ namespace Wumpus
             // which cave map are we using
         }
 
-        public int wumpusRoom()
+        public void updateWumpus(Random ness)
         {
-            int room = 0;
-            //calling cave
-            return room;
+            this.WumpusRoom = ness.nextInt(52);
+        }
+        
+        public int getWumpusRoom()
+        {
+            return this.WumpusRoom;
         }
 
       
